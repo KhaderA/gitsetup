@@ -1,0 +1,4 @@
+---
+# vars file for gitsetuprole
+reponame: testrepo 
+repourl: https://github.com/KhaderA/testrepo.git

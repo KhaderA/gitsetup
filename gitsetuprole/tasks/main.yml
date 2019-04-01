@@ -1,0 +1,15 @@
+---
+- name: Installing git
+  package:
+    name: git
+    state: present 
+- name: Run command on server
+  command: git clone "{{ repourl }}"
+- name: copy pre-hook file to .git hook folder
+  copy:
+    src: "{{ role_path }}/files/pre-commit"
+    dest: "./{{ reponame }}/.git/hooks/pre-commit"
+- name: make pre-commit file executable
+  file:
+    path: /root/testrepo/.git/hooks/pre-commit 
+    mode: 0751
